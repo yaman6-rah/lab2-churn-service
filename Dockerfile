@@ -25,7 +25,10 @@ COPY --from=builder /opt/venv /opt/venv
 COPY src ./src
 COPY data ./data
 RUN mkdir models && chown appuser:appuser models
-
+# pip is only needed to build the image, not to run it: remove both copies
+RUN rm -rf /opt/venv/lib/python3.14/site-packages/pip* \
+           /usr/local/lib/python3.14/site-packages/pip* \
+           /opt/venv/bin/pip* /usr/local/bin/pip*
 USER appuser
 
 # train the model inside the image so image == code + data
