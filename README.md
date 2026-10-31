@@ -43,6 +43,3 @@ pytest -v && ruff check .
 - **On `main`:** build image, Trivy scan (fails on HIGH/CRITICAL), push to GHCR tagged with the commit SHA.
 - `main` is protected: changes go through a pull request and the `test` check must pass.
 
-## Image
-
-Latest published digest: `sha256:c67d82ff17bb5bb59986b9bd17dcd49ef6168f92a864535e39cfeba9ab15fd3c`
